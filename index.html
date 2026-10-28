@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d1c">
+  <meta name="description" content="Aprenda as fases da Lua, explore o ciclo lunar e teste seus conhecimentos.">
+  <title>Observatório Lunar — Fases da Lua</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Observatório Lunar, início">
+      <span class="brand__icon" aria-hidden="true">✦</span>
+      <span>OBSERVATÓRIO <strong>LUNAR</strong></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#fases">Fases da Lua</a>
+      <a href="#simulacao">Simulação</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__dot"></span> UM GUIA PELO CÉU NOTURNO</p>
+        <h1 id="hero-title">A Lua está sempre<br>em <span>movimento.</span></h1>
+        <p class="hero__text">Descubra como nosso satélite muda de forma no céu e acompanhe uma jornada que se repete há bilhões de anos.</p>
+        <a class="button button--primary" href="#fases">Explorar as fases <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="orbit orbit--one"></div>
+        <div class="orbit orbit--two"></div>
+        <div class="hero-moon"></div>
+        <span class="hero-star hero-star--one">✦</span>
+        <span class="hero-star hero-star--two">·</span>
+        <span class="hero-star hero-star--three">✧</span>
+        <span class="hero-label">NOSSO SATÉLITE NATURAL <span>DISTÂNCIA 384.400 km</span></span>
+      </div>
+    </section>
+
+    <section class="section phases-section" id="fases" aria-labelledby="phases-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 — CONHEÇA O CICLO</p>
+          <h2 id="phases-title">As fases da Lua</h2>
+        </div>
+        <p class="section-heading__note">A Lua não muda de forma: vemos diferentes porções de sua metade iluminada pelo Sol.</p>
+      </div>
+      <div class="phase-layout">
+        <div class="phase-picker" role="group" aria-label="Selecione uma fase da Lua" id="phase-picker"></div>
+        <article class="phase-detail" aria-live="polite">
+          <div class="phase-detail__moon" id="phase-moon"></div>
+          <div class="phase-detail__copy">
+            <p class="eyebrow" id="phase-position">FASE 01 DE 08</p>
+            <h3 id="phase-name">Lua Nova</h3>
+            <p id="phase-description"></p>
+            <div class="phase-fact"><span aria-hidden="true">◉</span><span id="phase-illumination"></span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section simulation-section" id="simulacao" aria-labelledby="simulation-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 — VIAJE PELO TEMPO</p>
+          <h2 id="simulation-title">Uma lunação em minutos</h2>
+        </div>
+        <p class="section-heading__note">Um ciclo completo, da Lua Nova até a próxima, dura em média 29,5 dias.</p>
+      </div>
+      <div class="simulation-card">
+        <div class="simulation-card__sky">
+          <div class="simulation-stars" aria-hidden="true"></div>
+          <div class="simulation-moon" id="simulation-moon" aria-label="Lua Nova"></div>
+          <span class="sky-caption">VISTA DA TERRA</span>
+        </div>
+        <div class="simulation-controls">
+          <div class="simulation-readout">
+            <span class="eyebrow">DIA DO CICLO</span>
+            <strong><span id="cycle-day">0,0</span><small> / 29,5 dias</small></strong>
+            <span class="current-phase" id="simulation-phase">Lua Nova</span>
+          </div>
+          <div class="simulation-actions" role="group" aria-label="Controles da simulação">
+            <button class="button button--primary" id="start-button" type="button">▶ <span>Iniciar</span></button>
+            <button class="button button--secondary" id="pause-button" type="button" disabled>Ⅱ <span>Pausar</span></button>
+            <button class="button button--icon" id="reset-button" type="button" aria-label="Reiniciar simulação" title="Reiniciar simulação">↺</button>
+          </div>
+          <label class="speed-control" for="speed-slider">
+            <span>Velocidade</span>
+            <input id="speed-slider" type="range" min="0.1" max="2" step="0.1" value="0.5">
+            <span class="speed-value"><span id="speed-value">0,5</span> dias/s</span>
+          </label>
+          <div class="cycle-track" aria-hidden="true">
+            <div class="cycle-track__line"><span id="cycle-progress"></span></div>
+            <div class="cycle-track__phases" id="cycle-phase-markers"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="quiz" aria-labelledby="quiz-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">03 — HORA DE PRATICAR</p>
+          <h2 id="quiz-title">Desafio lunar</h2>
+        </div>
+        <p class="section-heading__note">Responda às perguntas e veja quanto você aprendeu sobre nossa vizinha cósmica.</p>
+      </div>
+      <div class="quiz-card" id="quiz-card" aria-live="polite">
+        <div class="quiz-card__top">
+          <span class="quiz-progress-label" id="quiz-progress-label">PERGUNTA 1 DE 6</span>
+          <span class="quiz-score">ACERTOS <strong id="quiz-score">0</strong></span>
+        </div>
+        <div class="quiz-progress"><span id="quiz-progress"></span></div>
+        <h3 id="question-text"></h3>
+        <div class="quiz-options" id="quiz-options"></div>
+        <p class="quiz-feedback" id="quiz-feedback" role="status"></p>
+        <button class="button button--primary quiz-next" id="next-question" type="button" hidden>Próxima pergunta <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
+        <span class="result-icon" aria-hidden="true">✦</span>
+        <p class="eyebrow">JORNADA CONCLUÍDA</p>
+        <h3>Você acertou <span id="final-score">0 de 6</span>!</h3>
+        <p id="result-message"></p>
+        <button class="button button--primary" id="restart-quiz" type="button">↺ <span>Refazer o quiz</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#inicio"><span class="brand__icon" aria-hidden="true">✦</span><span>OBSERVATÓRIO <strong>LUNAR</strong></span></a>
+    <p>Feito para olhar mais de perto. <span aria-hidden="true">☾</span></p>
+    <a href="#inicio" class="back-to-top">Voltar ao topo ↑</a>
+  </footer>
+</body>
+</html>
